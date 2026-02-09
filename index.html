@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nour 3innaya 💖</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffe6eb;
+    overflow: hidden;
+    text-align: center;
+  }
+  .page {
+    display: none;
+    height: 100vh;
+    padding: 30px;
+  }
+  .active {
+    display: block;
+  }
+  h1 {
+    color: #ff4d6d;
+  }
+  .card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    max-width: 350px;
+    margin: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  }
+  .photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px 0;
+  }
+  button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+  .no {
+    background: #ddd;
+    position: absolute;
+  }
+  .note {
+    background: #fff0f5;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+  }
+  /* hearts */
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+  }
+  @keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+  }
+  .explosion-heart {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+  0% {
+    transform: scale(0) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<audio  id="ma">
+  <source src="elgrandetoto-blue-love-klmatparoles-mtrgmtraduction-fr_uJSfRGzi.mp3" type="audio/mpeg">
+</audio>
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="card">
+    <h1>💖Nawwarti lghalya💖</h1>
+    <img src="Screenshot 2026-02-06 002409.png" class="photo">
+    <p style="margin-top: 25px;">Will you be my Valentine? 💘</p>
+    <button class="yes" onclick="nextPage(2)">YES 💕</button>
+    <button class="no" id="noBtn">NO 😅</button>
+  </div>
+</div>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="card">
+    <h1>OMG, YOU SAID YES 😭❤️</h1>
+    <p>You just made me the happiest person ever.</p>
+    <button class="yes" onclick="nextPage(3)">Next 💌</button>
+  </div>
+</div>
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="card">
+    <h1>💌 Words From My Heart</h1>
+    <img src="image copy.png" class="photo">
+    <div class="note">
+      My love,<br><br>
+      Every day with you feels warmer, brighter,
+      and a little more magical.
+      You are my favorite place to be 🤍
+    </div>
+
+    <button class="yes" onclick="nextPage(4)">Next 🌸</button>
+  </div>
+</div>
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <div class="card">
+    <h1>🌹 Flowers For My Love</h1>
+    <img src="image.png" class="photo">
+    <div class="note">I think about you every day 🌷</div>
+    <div class="note">My heart rose when I saw you 💖</div>
+    <div class="note">I will never leave you 🤍</div>
+
+    <h2>Forever Together 💕</h2>
+  </div>
+</div>
+<script>
+  function nextPage(n) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("page" + n).classList.add("active");
+    sayYes();
+  }
+
+  const noBtn = document.getElementById("noBtn");
+  noBtn.onmouseover = () => {
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
+  };
+
+  // floating hearts
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+  function sayYes() {
+    document.getElementById("ma").play();
+    // your heart explosion animation here 💥❤️
+  }
+</script>
+</body>
+</html>
